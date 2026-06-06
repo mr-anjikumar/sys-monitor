@@ -2,7 +2,15 @@
 echo "==============================="
 echo "   SYSTEM HEALTH MONITOR"
 echo "   $(date)"
-echo "================================"
+echo "==============================="
+
+# 👇 This new section shows where the script is running
+echo ""
+echo "📦  Running Inside: Docker Container"
+echo "   Container Hostname : $(hostname)"
+echo "   Container ID       : $(cat /proc/self/cgroup | grep memory | cut -d'/' -f3 | head -1)"
+echo "   Image Used         : system-monitor:v1"
+echo "   Monitored By       : anjikumarreddy"
 
 echo ""
 echo "🖥️  CPU Usage:"
@@ -24,4 +32,9 @@ echo ""
 echo "⚙️  Top 5 Memory-Hungry Processes:"
 ps aux --sort=-%mem | awk 'NR<=6 {printf "   %-20s %s%%\n", $11, $4}'
 
+echo ""
+echo "==============================="
+echo "   ✅ Source  : Docker Container"
+echo "   ✅ Project : Day 1 - DevOps Journey"
+echo "   ✅ GitHub  : github.com/mr-anjikumar"
 echo "==============================="
